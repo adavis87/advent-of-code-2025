@@ -1,6 +1,6 @@
-import { fileHanlder } from "../helpers/fileHandler.js";
+import { fileHanlder as handler } from "../helpers/fileHandler.js";
 
-let input = fileHanlder('input.txt').trim().split('\n');
+let input = handler('input.txt').trim().split('\n');
 
 let partOne = () => {
     let currentPosition = 50;
@@ -24,5 +24,11 @@ let partOne = () => {
     return zeroCount;
     
 }
+
+let partTwo = () => {
+    let currentPosition = 50;
+    let zeroCount = 
+}   
+
 const part_one = partOne();
 
