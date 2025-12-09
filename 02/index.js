@@ -24,51 +24,46 @@ function solution(input) {
   return invalidProductIdSum;
 }
 
-const part_one = solution(fileHandler('./input.txt', "utf-8"));
+const part_one = solution(fileHandler("./input.txt", "utf-8"));
 
 function solutionTwo(input) {
-    let input_interable = input.split(',');
-    let sum = 0;
+  let input_interable = input.split(",");
+  let sum = 0;
 
-    for (const range of input_interable) {
-        let separator = range.split('-');
-        
-        for (let i = parseInt(separator[0]); i <= parseInt(separator[1]); i++) {
+  for (const range of input_interable) {
+    let separator = range.split("-");
 
-            let pattern = '';
-            let string = i.toString();
+    for (let i = parseInt(separator[0]); i <= parseInt(separator[1]); i++) {
+      let pattern = "";
+      let string = i.toString();
 
-            for (const char of string) {
-                pattern += char;
-                
-                if (pattern.length > string.length / 2) {
-                    break;
-                }
-            
-                let is_this_the_invalid = true;
-               
-                // checks each pattern now 
-                for (let i = pattern.length; i < string.length; i += pattern.length) {
+      for (const char of string) {
+        pattern += char;
 
-                    if (pattern !== string.slice(i, i + pattern.length)) {
-                        is_this_the_invalid = false;
-                        break;
-                    }
-
-                }
-
-                if (is_this_the_invalid) {
-                    sum += parseInt(string);
-                    break;
-                }
-            }
-            
+        if (pattern.length > string.length / 2) {
+          break;
         }
-    }
 
-    console.log(`The sum is: ${sum}`);
+        let is_this_the_invalid = true;
+
+        // checks each pattern now
+        for (let i = pattern.length; i < string.length; i += pattern.length) {
+          if (pattern !== string.slice(i, i + pattern.length)) {
+            is_this_the_invalid = false;
+            break;
+          }
+        }
+
+        if (is_this_the_invalid) {
+          sum += parseInt(string);
+          break;
+        }
+      }
+    }
+  }
+
+  console.log(`The sum is: ${sum}`);
 }
 
-
-const part_two = solutionTwo(fileHandler('./input.txt', 'utf-8'));
+const part_two = solutionTwo(fileHandler("./input.txt", "utf-8"));
 console.log(part_two);
