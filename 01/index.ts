@@ -1,16 +1,15 @@
-import { fileHanlder as handler } from "../helpers/fileHandler.js";
+import { fileHandler as handler } from "../helpers/fileHandler.js";
 
-let input = handler("input.txt").trim().split("\n");
+const input: string[] = handler("input.txt").trim().split("\n");
 
-let partOne = () => {
+const partOne = (): number => {
   let currentPosition = 50;
-  let zeroCount = input.reduce((acc, line) => {
-    let num = parseInt(line.slice(1), 10);
+  const zeroCount = input.reduce((acc: number, line: string): number => {
+    const num = parseInt(line.slice(1), 10);
 
     if (line[0] === "R") {
       currentPosition = (currentPosition + num) % 100;
     } else {
-      //decrement num;
       currentPosition -= num;
       while (currentPosition < 0) {
         currentPosition += 100;
@@ -21,10 +20,10 @@ let partOne = () => {
   return zeroCount;
 };
 
-const part2 = () => {
+const part2 = (): void => {
   let current = 50;
 
-  const zerosCount = input.reduce((acc, line) => {
+  const zerosCount = input.reduce((acc: number, line: string): number => {
     const num = parseInt(line.slice(1), 10);
 
     if (line[0] === "R") {
@@ -50,6 +49,5 @@ const part2 = () => {
   console.log("Part 2: ", zerosCount);
 };
 
-const part_one = partOne();
+const part_one: number = partOne();
 part2();
-

@@ -2,9 +2,10 @@
   "name": "advent-of-code-2025",
   "version": "1.0.0",
   "description": "",
-
   "main": "index.js",
   "scripts": {
+    "start:01": "tsx 01/index.ts",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/adavis87/advent-of-code-2026/issues"
   },
-  "homepage": "https://github.com/adavis87/advent-of-code-2026#readme"
+  "homepage": "https://github.com/adavis87/advent-of-code-2026#readme",
+  "devDependencies": {
+    "@types/node": "^25.0.2"
+  }
 }

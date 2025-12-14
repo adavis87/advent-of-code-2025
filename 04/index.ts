@@ -1,13 +1,13 @@
 import { fileHandler } from "../helpers/fileHandler.js";
 
-const rollsOfPaper = fileHandler("input", "utf-8").trim().split("\n");
+const rollsOfPaper: string[] = fileHandler("input").trim().split("\n");
 
 
 // This will hold our final answer
-let totalAccessibleRolls = 0;
+let totalAccessibleRolls: number = 0;
 
 // The 8 directions we defined earlier
-const offsets = [
+const offsets: Array<[number, number]> = [
     [-1, -1], [-1, 0], [-1, 1], 
     [0, -1],           [0, 1], 
     [1, -1],  [1, 0],  [1, 1]   
@@ -27,16 +27,16 @@ for (let row = 0; row < rollsOfPaper.length; row++) {
 
         // STEP 2: Investigate (Count the neighbors)
         // This is the logic we wrote for the toy problem!
-        let neighborCount = 0;
+        let neighborCount: number = 0;
 
         for (let i = 0; i < offsets.length; i++) {
-            const offset = offsets[i];
-            const checkRow = row + offset[0];
-            const checkCol = col + offset[1];
+            const offset: [number, number] = offsets[i];
+            const checkRow: number = row + offset[0];
+            const checkCol: number = col + offset[1];
 
             // Bounds Check: Is this neighbor actually inside the rollsOfPaper?
-            const isRowValid = checkRow >= 0 && checkRow < rollsOfPaper.length;
-            const isColValid = checkCol >= 0 && checkCol < rollsOfPaper[0].length;
+            const isRowValid: boolean = checkRow >= 0 && checkRow < rollsOfPaper.length;
+            const isColValid: boolean = checkCol >= 0 && checkCol < rollsOfPaper[0].length;
 
             if (isRowValid && isColValid) {
                 // If valid, check if it's an @
@@ -59,6 +59,6 @@ console.log("Final Answer:", totalAccessibleRolls);
 
 /* ##### Part Two ##### */
 
-let totalRemoved = 0;
-let changed = true;
+let totalRemoved: number = 0;
+let changed: boolean = true;
 
